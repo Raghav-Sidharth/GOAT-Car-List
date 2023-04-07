@@ -17,6 +17,7 @@ router.get('/', async (req, res) => {
   }
 })
 
+// POST to DB and redirect to home page
 router.post('/add', async (req, res) => {
   try {
     const newCar = req.body
