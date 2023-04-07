@@ -8,27 +8,35 @@ export default function Cars() {
 
   useEffect(() => {
     dispatch(fetchCars())
-  }, [])
+  }, [dispatch])
   return (
     <>
-      <div>
+      <div className="carsHeader">
         <h3>Here are your Cars</h3>
       </div>
       <div>
         {cars.loading && <p>Please wait while we load your cars</p>}
         {cars.error && <p>{cars.error}</p>}
       </div>
-      <div>
+      <div className="cars">
         {cars.data ? (
           cars.data.length !== 0 ? (
             cars.data.map((data) => {
               return (
-                <div key={data.id}>
-                  <h4>{data.model}</h4>
+                <div key={data.id} className="carsData">
                   <img
+                    className="carsImg"
                     src={data.imageUrl}
                     alt={data.manufacturer + ' ' + data.model}
                   />
+
+                  <div>
+                    <p>
+                      {data.year + ' ' + data.manufacturer + ' ' + data.model}
+                    </p>
+
+                    <p>Cost: USD ${data.cost}</p>
+                  </div>
                 </div>
               )
             })

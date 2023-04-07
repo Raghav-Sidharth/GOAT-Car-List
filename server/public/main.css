@@ -1,0 +1,30 @@
+img {
+  max-width: 500px;
+  max-width: 250px;
+}
+
+.carsHeader {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+}
+
+.cars{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+ text-align: center;
+
+  
+}
+
+.carsData {
+
+  text-align: center;
+  max-width: 75%;
+  }
+
+  .carsImg {
+    padding: 20px;
+  }
