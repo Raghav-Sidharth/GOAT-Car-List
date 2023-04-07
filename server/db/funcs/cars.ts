@@ -1,6 +1,10 @@
 import connection from '../connection'
-import { Cars } from '../../../models/Cars'
+import { Cars, NewCar } from '../../../models/Cars'
 
 export function getCars(db = connection): Promise<Cars[]> {
   return db('cars').select()
+}
+
+export function addCar(newCar: NewCar, db = connection) {
+  return db('cars').insert(newCar)
 }
