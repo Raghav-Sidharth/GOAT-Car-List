@@ -1,13 +1,16 @@
-import { Cars } from '../../models/Cars'
+import { Cars, NewCar } from '../../models/Cars'
 import {
   CarsAction,
   FETCH_CARS_FULFILLED,
   FETCH_CARS_PENDING,
   FETCH_CARS_REJECTED,
+  ADD_CARS_PENDING,
+  ADD_CARS_FULFILLED,
+  ADD_CARS_REJECTED,
 } from '../actions/carsAction'
 
 interface CarsState {
-  data: Cars[] | undefined
+  data: Cars[] | undefined | NewCar
   error: string | undefined
   loading: boolean
 }
@@ -21,6 +24,7 @@ const initialState: CarsState = {
 const carsReducer = (state = initialState, action: CarsAction): CarsState => {
   const { type, payload } = action
   switch (type) {
+    // Fetch Cars
     case FETCH_CARS_PENDING:
       return {
         data: undefined,
@@ -34,6 +38,25 @@ const carsReducer = (state = initialState, action: CarsAction): CarsState => {
         loading: false,
       }
     case FETCH_CARS_REJECTED:
+      return {
+        data: undefined,
+        error: payload,
+        loading: false,
+      }
+    // Add Cars
+    case ADD_CARS_PENDING:
+      return {
+        data: undefined,
+        error: undefined,
+        loading: true,
+      }
+    case ADD_CARS_FULFILLED:
+      return {
+        data: payload,
+        error: undefined,
+        loading: false,
+      }
+    case ADD_CARS_REJECTED:
       return {
         data: undefined,
         error: payload,

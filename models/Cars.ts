@@ -7,10 +7,6 @@ export interface Cars {
   imageUrl: string
 }
 
-export interface NewCar {
-  manufacturer: string
-  model: string
-  year: string
-  cost: string
-  imageUrl: string
+export interface NewCar extends Partial<Cars> {
+  id?: number
 }

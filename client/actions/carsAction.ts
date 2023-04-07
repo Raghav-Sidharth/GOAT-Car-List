@@ -1,10 +1,16 @@
-import { Cars } from '../../models/Cars'
-import { getCars } from '../apis/cars'
+import { Cars, NewCar } from '../../models/Cars'
+import { addCar, getCars } from '../apis/cars'
 import type { ThunkAction } from '../store'
 
+// Fetch Cars
 export const FETCH_CARS_PENDING = 'FETCH_CARS_PENDING'
 export const FETCH_CARS_FULFILLED = 'FETCH_CARS_FULFILLED'
 export const FETCH_CARS_REJECTED = 'FETCH_CARS_REJECTED'
+
+// Add Cars
+export const ADD_CARS_PENDING = 'ADD_CARS_PENDING'
+export const ADD_CARS_FULFILLED = 'ADD_CARS_FULFILLED'
+export const ADD_CARS_REJECTED = 'ADD_CARS_REJECTED'
 
 export type CarsAction =
   | {
@@ -19,7 +25,55 @@ export type CarsAction =
       type: typeof FETCH_CARS_REJECTED
       payload: string
     }
+  // Add a car
+  | {
+      type: typeof ADD_CARS_PENDING
+      payload: void
+    }
+  | {
+      type: typeof ADD_CARS_FULFILLED
+      payload: NewCar
+    }
+  | {
+      type: typeof ADD_CARS_REJECTED
+      payload: string
+    }
 
+// Add a car
+export function addCarsPending(): CarsAction {
+  return {
+    type: ADD_CARS_PENDING,
+  } as CarsAction
+}
+
+export function addCarsFulfilled(newCar: NewCar): CarsAction {
+  return {
+    type: ADD_CARS_FULFILLED,
+    payload: newCar,
+  }
+}
+
+export function addCarsRejected(errMessage: string): CarsAction {
+  return {
+    type: ADD_CARS_REJECTED,
+    payload: errMessage,
+  }
+}
+
+export function addCars(newCar: NewCar): ThunkAction {
+  return (dispatch) => {
+    dispatch(addCarsPending())
+    return addCar(newCar)
+      .then((cars) => {
+        dispatch(addCarsFulfilled(cars))
+      })
+      .catch((err) => {
+        dispatch(addCarsRejected(err.message))
+      })
+  }
+}
+
+// Fetching all cars
 export function fetchCarsPending(): CarsAction {
   return {
     type: FETCH_CARS_PENDING,
