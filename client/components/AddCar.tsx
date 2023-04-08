@@ -23,22 +23,20 @@ export default function AddCar() {
 
   return (
     <form onSubmit={handleSubmit} className="addCar">
-      <div>
-        <label htmlFor="Who manufactured this car? ">
-          {' '}
-          Manufacturer
-          <input
-            type="text"
-            id="manufacturer"
-            name="manufacturer"
-            placeholder="Who manufactured this car?"
-            required
-            onChange={(e) =>
-              setNewCar({ ...newCar, manufacturer: e.target.value })
-            }
-          />
-        </label>
-      </div>
+      <label htmlFor="Who manufactured this car? ">
+        {' '}
+        Manufacturer
+        <input
+          type="text"
+          id="manufacturer"
+          name="manufacturer"
+          placeholder="Who manufactured this car?"
+          required
+          onChange={(e) =>
+            setNewCar({ ...newCar, manufacturer: e.target.value })
+          }
+        />
+      </label>
 
       <label htmlFor="What is the model of this car?">
         {' '}
