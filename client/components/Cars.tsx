@@ -1,6 +1,8 @@
-import { useEffect } from 'react'
+import Link, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import { fetchCars } from '../actions/carsAction'
+import UpdateCar from './UpdateCar'
+import { Router, Route } from 'react-router-dom'
 
 export default function Cars() {
   const cars = useAppSelector((state) => state.cars)
@@ -36,6 +38,7 @@ export default function Cars() {
                     </p>
 
                     <p>Cost: USD ${data.cost}</p>
+                    {<UpdateCar />}
                   </div>
                 </div>
               )
