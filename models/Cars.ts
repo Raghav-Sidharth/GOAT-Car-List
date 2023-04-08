@@ -12,8 +12,8 @@ export interface NewCar extends Partial<Cars> {
 }
 
 export interface UpdateCar extends Partial<Cars> {
-  manufacturer: string
-  model: string
-  year: string
-  cost: string
+  manufacturer?: string
+  model?: string
+  year?: string
+  cost?: string
 }
