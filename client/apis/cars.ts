@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { Cars, NewCar } from '../../models/Cars'
+import { Cars, NewCar, UpdateCar } from '../../models/Cars'
 
 const rootUrl = '/api/v1/cars'
 
@@ -10,5 +10,11 @@ export async function getCars(): Promise<Cars[]> {
 
 export async function addCar(newCar: NewCar[]) {
   const response = await request.post(`${rootUrl}/add`).send(newCar)
+  return response.body.cars
+}
+export async function updateCar(id: number, updateCar: UpdateCar[]) {
+  const response = await request
+    .patch(`${rootUrl}/cars/car/${id}`)
+    .send(updateCar)
   return response.body.cars
 }
