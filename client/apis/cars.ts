@@ -8,7 +8,7 @@ export async function getCars(): Promise<Cars[]> {
   return response.body
 }
 
-export async function addCar(newCar: NewCar) {
+export async function addCar(newCar: NewCar[]) {
   const response = await request.post(`${rootUrl}/add`).send(newCar)
   return response.body.cars
 }

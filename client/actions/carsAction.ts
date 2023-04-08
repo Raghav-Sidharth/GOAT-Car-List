@@ -32,7 +32,7 @@ export type CarsAction =
     }
   | {
       type: typeof ADD_CARS_FULFILLED
-      payload: NewCar
+      payload: NewCar[]
     }
   | {
       type: typeof ADD_CARS_REJECTED
@@ -46,7 +46,7 @@ export function addCarsPending(): CarsAction {
   } as CarsAction
 }
 
-export function addCarsFulfilled(newCar: NewCar): CarsAction {
+export function addCarsFulfilled(newCar: NewCar[]): CarsAction {
   return {
     type: ADD_CARS_FULFILLED,
     payload: newCar,
@@ -60,7 +60,7 @@ export function addCarsRejected(errMessage: string): CarsAction {
   }
 }
 
-export function addCars(newCar: NewCar): ThunkAction {
+export function addCars(newCar: NewCar[]): ThunkAction {
   return (dispatch) => {
     dispatch(addCarsPending())
     return addCar(newCar)

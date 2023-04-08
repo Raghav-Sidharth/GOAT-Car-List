@@ -1,16 +1,13 @@
-import { Cars, NewCar } from '../../models/Cars'
+import { Cars } from '../../models/Cars'
 import {
   CarsAction,
   FETCH_CARS_FULFILLED,
   FETCH_CARS_PENDING,
   FETCH_CARS_REJECTED,
-  ADD_CARS_PENDING,
-  ADD_CARS_FULFILLED,
-  ADD_CARS_REJECTED,
 } from '../actions/carsAction'
 
 interface CarsState {
-  data: Cars[] | undefined | NewCar
+  data: Cars[] | undefined
   error: string | undefined
   loading: boolean
 }
@@ -44,24 +41,24 @@ const carsReducer = (state = initialState, action: CarsAction): CarsState => {
         loading: false,
       }
     // Add Cars
-    case ADD_CARS_PENDING:
-      return {
-        data: undefined,
-        error: undefined,
-        loading: true,
-      }
-    case ADD_CARS_FULFILLED:
-      return {
-        data: payload,
-        error: undefined,
-        loading: false,
-      }
-    case ADD_CARS_REJECTED:
-      return {
-        data: undefined,
-        error: payload,
-        loading: false,
-      }
+    // case ADD_CARS_PENDING:
+    //   return {
+    //     data: undefined,
+    //     error: undefined,
+    //     loading: true,
+    //   }
+    // case ADD_CARS_FULFILLED:
+    //   return {
+    //     data: payload,
+    //     error: undefined,
+    //     loading: false,
+    //   }
+    // case ADD_CARS_REJECTED:
+    //   return {
+    //     data: undefined,
+    //     error: payload,
+    //     loading: false,
+    //   }
     default:
       return state
   }
