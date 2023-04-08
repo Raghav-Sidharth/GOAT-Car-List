@@ -10,3 +10,10 @@ export interface Cars {
 export interface NewCar extends Partial<Cars> {
   id?: number
 }
+
+export interface UpdateCar extends Partial<Cars> {
+  manufacturer: string
+  model: string
+  year: string
+  cost: string
+}
