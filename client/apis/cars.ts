@@ -16,6 +16,6 @@ export async function updateCar(id: number, updateCar: UpdateCar) {
   const response = await request
     .patch(`${rootUrl}` + '/' + `${id}`)
     .send(updateCar)
-  console.log(response)
+
   return response.body
 }
