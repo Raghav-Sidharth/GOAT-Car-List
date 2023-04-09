@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { getCars, updateCar } from '../db/funcs/cars'
+import { deleteCar, getCars, updateCar } from '../db/funcs/cars'
 import { addCar } from '../db/funcs/cars'
 
 const router = Router()
@@ -30,12 +30,23 @@ router.post('/add', async (req, res) => {
 })
 
 //PATCH update a car based on it's id
-
 router.patch('/:id', async (req, res) => {
   try {
     const id = Number(req.params.id)
     const car = req.body
     await updateCar(id, car)
+    res.redirect('/')
+  } catch (err) {
+    console.error(err)
+    res.sendStatus(500)
+  }
+})
+
+// DELETE a car based on it's id
+router.delete('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    await deleteCar(id)
     res.redirect('/')
   } catch (err) {
     console.error(err)
