@@ -38,7 +38,7 @@ export default function Cars() {
                     </p>
 
                     <p>Cost: USD ${data.cost}</p>
-                    <Link to={`/car/${data.id}`}>
+                    <Link to={`/${data.id}`}>
                       {' '}
                       Something wrong? Update this car!
                     </Link>

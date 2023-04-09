@@ -10,5 +10,5 @@ export function addCar(newCar: NewCar, db = connection) {
 }
 
 export function updateCar(id: number, car: UpdateCar, db = connection) {
-  return db('cars').update(car).where('id', id)
+  return db('cars').where('id', id).update(car)
 }
