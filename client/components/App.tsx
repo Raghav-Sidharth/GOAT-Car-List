@@ -6,11 +6,11 @@ import UpdateCar from './UpdateCar'
 function App() {
   return (
     <>
-      <Navbar />
       <header className="header">
-        <h1>My Collection</h1>
+        <h1>A collection of the G.O.A.T Cars</h1>
       </header>
       <section className="main">{/* add your code here */}</section>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Cars />} />
         <Route path="/add" element={<AddCar />} />

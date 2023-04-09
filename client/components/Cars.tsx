@@ -19,7 +19,7 @@ export default function Cars() {
   return (
     <>
       <div className="carsHeader">
-        <h3>Here are your Cars</h3>
+        <h3>Here are the cars</h3>
       </div>
       <div>
         {cars.loading && <p>Please wait while we load your cars</p>}
@@ -47,10 +47,10 @@ export default function Cars() {
                       {' '}
                       Something wrong? Update this car!
                     </Link>
+                    <br />
                     <button type="submit" onClick={() => handleDelete(data.id)}>
                       Delete this Car
                     </button>
-                    <br />
                   </div>
                 </div>
               )
