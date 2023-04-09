@@ -1,6 +1,48 @@
+
+
 img {
   max-width: 500px;
   max-width: 250px;
+}
+header{
+  display: flex;
+  justify-content: center;
+  font-family: "articulat-heavy-cf", sans-serif;
+font-weight: 900;
+font-style: italic;
+}
+.titleUpdateCar{
+  display: flex;
+  justify-content: center;
+
+}
+.addACar{
+  display: flex;
+  justify-content: center;
+}
+nav{
+  
+  display: flex;
+  
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  padding: 20px;
+  font-family: "articulat-cf", sans-serif;
+font-weight: 700;
+font-style: normal;
+}
+h3{
+  font-family: "articulat-heavy-cf", sans-serif;
+font-weight: 900;
+font-style: normal;
+}
+.navViewCars{
+  padding: 20px;
+}
+.navAddCars{
+  padding: 20px;
 }
 
 .carsHeader {
@@ -16,6 +58,9 @@ img {
   justify-content: center;
   align-content: center;
  text-align: center;
+ font-family: "articulat-cf", sans-serif;
+font-weight: 400;
+font-style: normal;
 
   
 }
@@ -26,6 +71,13 @@ img {
   text-align: center;
 
 }
+
+.updateCar{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
 .carsData {
 
   text-align: center;
@@ -34,4 +86,13 @@ img {
 
   .carsImg {
     padding: 20px;
+  }
+  form{
+    font-family: "articulat-cf", sans-serif;
+font-weight: 400;
+font-style: normal;
+  }
+
+  .buttonCarsList{
+    padding-top: 15px;
   }

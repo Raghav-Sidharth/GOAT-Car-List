@@ -48,9 +48,14 @@ export default function Cars() {
                       Something wrong? Update this car!
                     </Link>
                     <br />
-                    <button type="submit" onClick={() => handleDelete(data.id)}>
-                      Delete this Car
-                    </button>
+                    <div className="buttonCarsList">
+                      <button
+                        type="submit"
+                        onClick={() => handleDelete(data.id)}
+                      >
+                        Delete this Car
+                      </button>
+                    </div>
                   </div>
                 </div>
               )

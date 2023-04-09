@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 export default function Navbar() {
   return (
     <nav>
-      <div>
+      <div className="navViewCars">
         <Link to="/">View Cars</Link>
       </div>
-      <div>
+      <div className="navAddCars">
         <Link to="/add">Add a Car</Link>
       </div>
     </nav>
