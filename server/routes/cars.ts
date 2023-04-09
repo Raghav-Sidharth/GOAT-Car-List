@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { deleteCar, getCars, updateCar } from '../db/funcs/cars'
+import { deleteCar, getCarById, getCars, updateCar } from '../db/funcs/cars'
 import { addCar } from '../db/funcs/cars'
 
 const router = Router()
@@ -11,6 +11,18 @@ router.get('/', async (req, res) => {
   try {
     const cars = await getCars()
     res.json(cars)
+  } catch (err) {
+    console.error(err)
+    res.sendStatus(500)
+  }
+})
+
+// GET car by id
+router.get('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    const car = await getCarById(id)
+    res.json(car)
   } catch (err) {
     console.error(err)
     res.sendStatus(500)

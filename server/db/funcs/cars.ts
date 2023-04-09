@@ -5,6 +5,10 @@ export function getCars(db = connection): Promise<Cars[]> {
   return db('cars').select()
 }
 
+export function getCarById(id: number, db = connection): Promise<Cars[]> {
+  return db('cars').where('id', id).first()
+}
+
 export function addCar(newCar: NewCar, db = connection) {
   return db('cars').insert(newCar)
 }
