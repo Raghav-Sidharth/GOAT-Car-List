@@ -19,3 +19,8 @@ export async function updateCar(id: number, updateCar: UpdateCar) {
 
   return response.body
 }
+
+export async function deleteCar(id: number) {
+  const response = await request.delete(`${rootUrl}` + '/' + `${id}`)
+  return response.body
+}

@@ -1,12 +1,17 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
-import { fetchCars } from '../actions/carsAction'
+import { fetchCars, delCar } from '../actions/carsAction'
 
 import { Link } from 'react-router-dom'
 
 export default function Cars() {
   const cars = useAppSelector((state) => state.cars)
   const dispatch = useAppDispatch()
+
+  function handleDelete(id: number) {
+    dispatch(delCar(id))
+    window.location.reload()
+  }
 
   useEffect(() => {
     dispatch(fetchCars())
@@ -42,6 +47,10 @@ export default function Cars() {
                       {' '}
                       Something wrong? Update this car!
                     </Link>
+                    <button type="submit" onClick={() => handleDelete(data.id)}>
+                      Delete this Car
+                    </button>
+                    <br />
                   </div>
                 </div>
               )
