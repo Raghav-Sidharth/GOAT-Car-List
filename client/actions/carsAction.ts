@@ -75,7 +75,7 @@ export type CarsAction =
       payload: string
     }
 
-// Dekete a car
+// Delete a car
 export function deleteCarPending(): CarsAction {
   return {
     type: DELETE_CAR_PENDING,

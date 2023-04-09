@@ -1,8 +1,25 @@
-
+.updCar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  max-width: 750px;
+  min-width: 250px;
+ 
+}
+        
+.updImg {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  padding: 35px;
+}
 
 img {
-  max-width: 500px;
-  max-width: 250px;
+  max-width: 300px;
+  min-width: 175px;
+
 }
 header{
   display: flex;
@@ -66,17 +83,32 @@ font-style: normal;
 }
 .addCar {
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
+  align-content: center;
   text-align: center;
-
 }
 
 .updateCar{
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.formDiv {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   text-align: center;
+  padding-top: 15px;
+}
+.buttonDiv{
+  padding-top: 15px;
 }
 .carsData {
 
@@ -95,4 +127,13 @@ font-style: normal;
 
   .buttonCarsList{
     padding-top: 15px;
+  }
+  label {
+    display:block;
+    padding-bottom: 5px;
+    
+  }
+  input, textarea{
+    display: block;
+    
   }
