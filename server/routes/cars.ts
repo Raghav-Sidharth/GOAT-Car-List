@@ -31,7 +31,7 @@ router.post('/add', async (req, res) => {
 
 //PATCH update a car based on it's id
 
-router.patch('/car/:id', async (req, res) => {
+router.patch('/:id', async (req, res) => {
   try {
     const id = Number(req.params.id)
     const car = req.body
