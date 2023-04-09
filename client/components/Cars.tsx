@@ -19,7 +19,7 @@ export default function Cars() {
   return (
     <>
       <div className="carsHeader">
-        <h3>Here are the cars</h3>
+        <h2>Here are the cars</h2>
       </div>
       <div>
         {cars.loading && <p>Please wait while we load your cars</p>}

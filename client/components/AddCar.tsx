@@ -24,11 +24,11 @@ export default function AddCar() {
   return (
     <>
       <div className="addACar">
-        <h3>Add a Car</h3>
+        <h2>Add a Car</h2>
       </div>
       <form onSubmit={handleSubmit} className="addCar">
         <div className="formDiv">
-          <label htmlFor="Who manufactured this car? ">
+          <label htmlFor="manufacturer" aria-label="Who manufactured this car?">
             {' '}
             Manufacturer
             <input
@@ -44,7 +44,7 @@ export default function AddCar() {
           </label>
         </div>
         <div className="formDiv">
-          <label htmlFor="What is the model of this car?">
+          <label htmlFor="model" aria-label="What is the model of this car?">
             {' '}
             Model
             <input
@@ -58,7 +58,10 @@ export default function AddCar() {
           </label>
         </div>
         <div className="formDiv">
-          <label htmlFor="Which year was this car available for sale?">
+          <label
+            htmlFor="year"
+            aria-label="Which year was this car available for sale?"
+          >
             {' '}
             Release Year
             <input
@@ -72,7 +75,7 @@ export default function AddCar() {
           </label>
         </div>
         <div className="formDiv">
-          <label htmlFor="What is the cost of this car?">
+          <label htmlFor="cost" aria-label="What is the cost of this car?">
             {' '}
             Cost
             <input
@@ -86,7 +89,10 @@ export default function AddCar() {
           </label>
         </div>
         <div className="formDiv">
-          <label htmlFor="Please provide a link to an image of this car.">
+          <label
+            htmlFor="imageUrl"
+            aria-label="Please provide a link to an image of this car."
+          >
             Image Link
             <input
               type="text"

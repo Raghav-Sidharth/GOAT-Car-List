@@ -38,7 +38,7 @@ export default function UpdateCar() {
     <>
       <div>
         <div className="titleUpdateCar">
-          <h3>Update This Car</h3>
+          <h2>Update This Car</h2>
         </div>
         <div className="updImg">
           <img
@@ -49,7 +49,10 @@ export default function UpdateCar() {
         </div>
         <form onSubmit={handleSubmit} className="updateCar">
           <div className="formDiv">
-            <label htmlFor="Who manufactured this car? ">
+            <label
+              htmlFor="manufacturer"
+              aria-label="Who manufactured this car?"
+            >
               {' '}
               Manufacturer
               <input
@@ -65,7 +68,7 @@ export default function UpdateCar() {
             </label>
           </div>
           <div className="formDiv">
-            <label htmlFor="What is the model of this car?">
+            <label htmlFor="model" aria-label="What is the model of this car?">
               {' '}
               Model
               <input
@@ -82,7 +85,10 @@ export default function UpdateCar() {
             </label>
           </div>
           <div className="formDiv">
-            <label htmlFor="Which year was this car available for sale?">
+            <label
+              htmlFor="year"
+              aria-label="Which year was this car released?"
+            >
               {' '}
               Release Year
               <input
@@ -99,7 +105,7 @@ export default function UpdateCar() {
             </label>
           </div>
           <div className="formDiv">
-            <label htmlFor="What is the cost of this car?">
+            <label htmlFor="cost" aria-label="What is the cost of this car?">
               {' '}
               Cost
               <input
