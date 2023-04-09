@@ -1,8 +1,8 @@
-import Link, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import { fetchCars } from '../actions/carsAction'
-import UpdateCar from './UpdateCar'
-import { Router, Route } from 'react-router-dom'
+
+import { Link } from 'react-router-dom'
 
 export default function Cars() {
   const cars = useAppSelector((state) => state.cars)
@@ -38,7 +38,10 @@ export default function Cars() {
                     </p>
 
                     <p>Cost: USD ${data.cost}</p>
-                    {<UpdateCar />}
+                    <Link to={`/car/${data.id}`}>
+                      {' '}
+                      Something wrong? Update this car!
+                    </Link>
                   </div>
                 </div>
               )

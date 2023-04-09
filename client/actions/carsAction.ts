@@ -50,7 +50,7 @@ export type CarsAction =
     }
   | {
       type: typeof UPDATE_CAR_FULFILLED
-      payload: UpdateCar[]
+      payload: UpdateCar
     }
   | {
       type: typeof UPDATE_CAR_REJECTED
@@ -60,25 +60,25 @@ export type CarsAction =
 // Update a car
 export function updateCarPending(): CarsAction {
   return {
-    type: ADD_CARS_PENDING,
+    type: UPDATE_CAR_PENDING,
   } as CarsAction
 }
 
-export function updateCarFulfilled(updCar: UpdateCar[]): CarsAction {
+export function updateCarFulfilled(updCar: UpdateCar): CarsAction {
   return {
-    type: ADD_CARS_FULFILLED,
+    type: UPDATE_CAR_FULFILLED,
     payload: updCar,
   }
 }
 
 export function updateCarRejected(errMessage: string): CarsAction {
   return {
-    type: ADD_CARS_REJECTED,
+    type: UPDATE_CAR_REJECTED,
     payload: errMessage,
   }
 }
 
-export function updCar(id: number, car: UpdateCar[]): ThunkAction {
+export function updCar(id: number, car: UpdateCar): ThunkAction {
   return (dispatch) => {
     dispatch(updateCarPending())
     return updateCar(id, car)

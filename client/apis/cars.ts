@@ -12,9 +12,8 @@ export async function addCar(newCar: NewCar[]) {
   const response = await request.post(`${rootUrl}/add`).send(newCar)
   return response.body.cars
 }
-export async function updateCar(id: number, updateCar: UpdateCar[]) {
-  const response = await request
-    .patch(`${rootUrl}/cars/car/${id}`)
-    .send(updateCar)
-  return response.body.cars
+export async function updateCar(id: number, updateCar: UpdateCar) {
+  const response = await request.patch(`${rootUrl}/car/${id}`).send(updateCar)
+  console.log(response)
+  return response.body
 }

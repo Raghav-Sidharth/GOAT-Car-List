@@ -17,7 +17,8 @@ export default function UpdateCar() {
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
     const id = Number(params)
-    dispatch(updCar(id, [updatedCar]))
+    dispatch(updCar(id, updatedCar))
+    console.log(updatedCar)
     navigate('/')
   }
   return (

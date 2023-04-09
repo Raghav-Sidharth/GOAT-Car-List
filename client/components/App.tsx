@@ -2,6 +2,7 @@ import AddCar from './AddCar'
 import Cars from './Cars'
 import Navbar from './Navbar'
 import { Routes, Route } from 'react-router-dom'
+import UpdateCar from './UpdateCar'
 function App() {
   return (
     <>
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Cars />} />
         <Route path="/add" element={<AddCar />} />
+        <Route path="/car/:id" element={<UpdateCar />} />
       </Routes>
     </>
   )
