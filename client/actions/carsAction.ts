@@ -55,7 +55,7 @@ export type CarsAction =
     }
   | {
       type: typeof UPDATE_CAR_FULFILLED
-      payload: UpdateCar
+      payload: null
     }
   | {
       type: typeof UPDATE_CAR_REJECTED
@@ -116,10 +116,10 @@ export function updateCarPending(): CarsAction {
   } as CarsAction
 }
 
-export function updateCarFulfilled(updCar: UpdateCar): CarsAction {
+export function updateCarFulfilled(): CarsAction {
   return {
     type: UPDATE_CAR_FULFILLED,
-    payload: updCar,
+    payload: null,
   }
 }
 
@@ -134,8 +134,8 @@ export function updCar(id: number, car: UpdateCar): ThunkAction {
   return (dispatch) => {
     dispatch(updateCarPending())
     return updateCar(id, car)
-      .then((cars) => {
-        dispatch(updateCarFulfilled(cars))
+      .then(() => {
+        dispatch(updateCarFulfilled())
       })
       .catch((err) => {
         dispatch(updateCarRejected(err.message))
