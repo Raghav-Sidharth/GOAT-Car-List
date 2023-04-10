@@ -10,12 +10,13 @@ export default function Cars() {
 
   function handleDelete(id: number) {
     dispatch(delCar(id))
-    window.location.reload()
+    // window.location.reload()
   }
 
   useEffect(() => {
     dispatch(fetchCars())
   }, [dispatch])
+  console.log(cars.data)
   return (
     <>
       <div className="carsHeader">

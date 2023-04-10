@@ -42,7 +42,7 @@ export type CarsAction =
     }
   | {
       type: typeof ADD_CARS_FULFILLED
-      payload: NewCar[]
+      payload: null
     }
   | {
       type: typeof ADD_CARS_REJECTED
@@ -68,7 +68,7 @@ export type CarsAction =
     }
   | {
       type: typeof DELETE_CAR_FULFILLED
-      payload: string
+      payload: number
     }
   | {
       type: typeof DELETE_CAR_REJECTED
@@ -82,10 +82,10 @@ export function deleteCarPending(): CarsAction {
   } as CarsAction
 }
 
-export function deleteCarFulfilled(delCar: string): CarsAction {
+export function deleteCarFulfilled(id: number): CarsAction {
   return {
     type: DELETE_CAR_FULFILLED,
-    payload: delCar,
+    payload: id,
   }
 }
 
@@ -101,7 +101,7 @@ export function delCar(id: number): ThunkAction {
     dispatch(deleteCarPending())
     return deleteCar(id)
       .then(() => {
-        dispatch(deleteCarFulfilled('Successfully deleted car'))
+        dispatch(deleteCarFulfilled(id))
       })
       .catch((err) => {
         dispatch(deleteCarRejected(err.message))
@@ -150,10 +150,10 @@ export function addCarsPending(): CarsAction {
   } as CarsAction
 }
 
-export function addCarsFulfilled(newCar: NewCar[]): CarsAction {
+export function addCarsFulfilled(): CarsAction {
   return {
     type: ADD_CARS_FULFILLED,
-    payload: newCar,
+    payload: null,
   }
 }
 
@@ -164,12 +164,12 @@ export function addCarsRejected(errMessage: string): CarsAction {
   }
 }
 
-export function addCars(newCar: NewCar[]): ThunkAction {
+export function addCars(newCar: NewCar): ThunkAction {
   return (dispatch) => {
     dispatch(addCarsPending())
     return addCar(newCar)
-      .then((cars) => {
-        dispatch(addCarsFulfilled(cars))
+      .then(() => {
+        dispatch(addCarsFulfilled())
       })
       .catch((err) => {
         dispatch(addCarsRejected(err.message))

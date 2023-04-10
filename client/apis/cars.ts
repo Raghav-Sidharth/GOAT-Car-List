@@ -13,19 +13,13 @@ export async function getCarById(id: number) {
   return response.body
 }
 
-export async function addCar(newCar: NewCar[]) {
-  const response = await request.post(`${rootUrl}/add`).send(newCar)
-  return response.body.cars
+export async function addCar(newCar: NewCar) {
+  await request.post(`${rootUrl}/add`).send(newCar)
 }
 export async function updateCar(id: number, updateCar: UpdateCar) {
-  const response = await request
-    .patch(`${rootUrl}` + '/' + `${id}`)
-    .send(updateCar)
-
-  return response.body
+  await request.patch(`${rootUrl}` + '/' + `${id}`).send(updateCar)
 }
 
 export async function deleteCar(id: number) {
-  const response = await request.delete(`${rootUrl}` + '/' + `${id}`)
-  return response.body
+  await request.delete(`${rootUrl}/${id}`)
 }

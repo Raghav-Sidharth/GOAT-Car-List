@@ -34,7 +34,7 @@ router.post('/add', async (req, res) => {
   try {
     const newCar = req.body
     await addCar(newCar)
-    res.redirect('/')
+    res.sendStatus(201)
   } catch (err) {
     console.error(err)
     res.sendStatus(500)
@@ -47,7 +47,7 @@ router.patch('/:id', async (req, res) => {
     const id = Number(req.params.id)
     const car = req.body
     await updateCar(id, car)
-    res.redirect('/')
+    res.sendStatus(200)
   } catch (err) {
     console.error(err)
     res.sendStatus(500)
@@ -59,7 +59,7 @@ router.delete('/:id', async (req, res) => {
   try {
     const id = Number(req.params.id)
     await deleteCar(id)
-    res.redirect('/')
+    res.sendStatus(200)
   } catch (err) {
     console.error(err)
     res.sendStatus(500)

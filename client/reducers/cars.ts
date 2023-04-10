@@ -4,6 +4,7 @@ import {
   FETCH_CARS_FULFILLED,
   FETCH_CARS_PENDING,
   FETCH_CARS_REJECTED,
+  DELETE_CAR_FULFILLED,
 } from '../actions/carsAction'
 
 interface CarsState {
@@ -38,6 +39,13 @@ const carsReducer = (state = initialState, action: CarsAction): CarsState => {
       return {
         data: undefined,
         error: payload,
+        loading: false,
+      }
+
+    case DELETE_CAR_FULFILLED:
+      return {
+        data: state.data?.filter((car) => car.id !== payload),
+        error: undefined,
         loading: false,
       }
     // Add Cars

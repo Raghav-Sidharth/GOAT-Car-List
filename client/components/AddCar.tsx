@@ -17,7 +17,8 @@ export default function AddCar() {
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
-    dispatch(addCars([newCar]))
+    dispatch(addCars(newCar))
+    console.log('New Car', newCar)
     navigate('/')
   }
 
