@@ -33,7 +33,7 @@ exports.seed = async function (knex) {
       year: '2022',
       cost: '1.8 Million',
       imageUrl:
-        'https://hips.hearstapps.com/roadandtrack/assets/15/38/1442606721-porsche-911-carrera-1972-wallpapers-10.jpg',
+        'https://www.cnet.com/a/img/resize/e9c3766c27c3ba4b79861f4117470a78c0bd95f9/hub/2022/02/09/4996c656-43b1-40d1-a3f5-7eccb40e9030/singer-turbo-study-porsche-930-911-111.jpg?auto=webp&fit=crop&height=675&width=1200',
     },
 
     {
