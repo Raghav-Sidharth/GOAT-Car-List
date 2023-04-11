@@ -20,7 +20,7 @@ export default function AddCar() {
     dispatch(addCars(newCar))
     console.log('New Car', newCar)
     setNewCar({ manufacturer: '', model: '', year: '', cost: '', imageUrl: '' })
-    // navigate('/')
+    navigate('/')
   }
 
   return (
