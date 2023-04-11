@@ -19,7 +19,8 @@ export default function AddCar() {
     e.preventDefault()
     dispatch(addCars(newCar))
     console.log('New Car', newCar)
-    navigate('/')
+    setNewCar({ manufacturer: '', model: '', year: '', cost: '', imageUrl: '' })
+    // navigate('/')
   }
 
   return (
@@ -38,6 +39,7 @@ export default function AddCar() {
               name="manufacturer"
               placeholder="Who manufactured this car?"
               required
+              value={newCar.manufacturer}
               onChange={(e) =>
                 setNewCar({ ...newCar, manufacturer: e.target.value })
               }
@@ -54,6 +56,7 @@ export default function AddCar() {
               name="model"
               placeholder="What is the model of this car?"
               required
+              value={newCar.model}
               onChange={(e) => setNewCar({ ...newCar, model: e.target.value })}
             />
           </label>
@@ -71,6 +74,7 @@ export default function AddCar() {
               name="year"
               placeholder="Which year was this car available for sale?"
               required
+              value={newCar.year}
               onChange={(e) => setNewCar({ ...newCar, year: e.target.value })}
             />
           </label>
@@ -84,6 +88,7 @@ export default function AddCar() {
               id="cost"
               name="cost"
               placeholder="What is the cost of this car?"
+              value={newCar.cost}
               required
               onChange={(e) => setNewCar({ ...newCar, cost: e.target.value })}
             />
@@ -101,6 +106,7 @@ export default function AddCar() {
               name="imageUrl"
               placeholder="Please provide a link to an image of this car."
               required
+              value={newCar.imageUrl}
               onChange={(e) =>
                 setNewCar({ ...newCar, imageUrl: e.target.value })
               }
