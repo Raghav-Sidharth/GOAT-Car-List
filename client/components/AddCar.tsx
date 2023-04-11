@@ -19,7 +19,7 @@ export default function AddCar() {
     e.preventDefault()
     dispatch(addCars(newCar))
     console.log('New Car', newCar)
-    setNewCar({ manufacturer: '', model: '', year: '', cost: '', imageUrl: '' })
+    // setNewCar({ manufacturer: '', model: '', year: '', cost: '', imageUrl: '' })
     navigate('/')
   }
 
