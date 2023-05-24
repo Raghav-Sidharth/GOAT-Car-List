@@ -1,4 +1,5 @@
 const { join } = require('node:path')
+const path = require('node:path')
 
 module.exports = {
   development: {
@@ -37,7 +38,10 @@ module.exports = {
       max: 10,
     },
     migrations: {
-      tableName: 'knex_migrations',
+      directory: path.join(__dirname, 'migrations'),
+    },
+    seeds: {
+      directory: path.join(__dirname, 'seeds'),
     },
   },
 }
