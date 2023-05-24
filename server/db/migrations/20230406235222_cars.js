@@ -4,7 +4,7 @@
  */
 exports.up = function (knex) {
   return knex.schema.createTable('cars', (table) => {
-    table.increments('id')
+    table.increments('id').primary()
     table.string('manufacturer')
     table.string('model')
     table.string('year')
@@ -18,5 +18,5 @@ exports.up = function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = function (knex) {
-  return knex.schema.dropTable('cars')
+  return knex.schema.dropTableIfExists('cars')
 }
